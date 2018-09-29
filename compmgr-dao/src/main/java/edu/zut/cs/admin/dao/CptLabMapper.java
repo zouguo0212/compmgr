@@ -1,6 +1,7 @@
 package edu.zut.cs.admin.dao;
 
 import edu.zut.cs.admin.model.CptLab;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,13 @@ public interface CptLabMapper {
 	CptLab getComputerLabById(Integer i);
 
 	List<CptLab> getAllComputerLab();
+
+	List<CptLab> selectFreeCptLabByTime(@Param("week")Integer week, @Param("weekDay")Integer weekDay, @Param("node")Integer node);
+
+	Integer deleteComputerLabById(@Param("id") Integer id);
+	
+	Integer insertComputerLab(String roomNum,Integer priority,Integer amount);
+	
+	Integer updateComputerLabInfo(Integer id, Integer priority, Integer amount);
+
 }

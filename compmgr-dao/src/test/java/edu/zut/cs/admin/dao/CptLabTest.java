@@ -1,6 +1,5 @@
 package edu.zut.cs.admin.dao;
 
-import edu.zut.cs.admin.dao.CptLabMapper;
 import edu.zut.cs.admin.model.CptLab;
 
 import org.junit.Test;
@@ -12,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author:fy0202
@@ -28,16 +26,6 @@ public class CptLabTest {
 	@Autowired
 	CptLabMapper cptlabMapper;
 
-	@Test
-	public void getComputerLabByIdTest() {
-		Scanner scanner = new Scanner(System.in);
-		Integer i = 0;
-		System.out.println("please input a id to reserach:");
-		i = scanner.nextInt();
-		CptLab name = cptlabMapper.getComputerLabById(i);
-		System.out.println(name);
-		scanner.close();
-	}
 
 	@Test
 	public void getAllComputerLabTest(){
@@ -46,4 +34,12 @@ public class CptLabTest {
 			System.out.println(lab);
 		}
 	}
+	
+	@Test
+	public void deleteComputerLabByIdTest() {
+		Integer id=2;
+		Integer result = cptlabMapper.deleteComputerLabById(id);
+		System.out.println(result);
+	}
+	
 }
